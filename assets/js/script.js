@@ -1,6 +1,6 @@
 // TODO: Declare any global variables we need
 
-
+    
 document.addEventListener('DOMContentLoaded', function () {
     // This is just a sanity check to make sure your JavaScript script is getting loaded
     // You can remove it once you see it in your browser console in the developer tools
