@@ -6,13 +6,15 @@ let tails_percent=0;
 let total=0;
 
 
+let image = document.getElementById("image").src = 'assets/images/penny-heads.jpg'
+
+let message = message
 
 
     // TODO: Add event listener and handler for flip and clear buttons
 
 
-    // Flip Button Click Handler
-        // TODO: Determine flip outcome
+
         // TODO: Update image and status message in the DOM
 
     document.getElementById("flip").addEventListener("click", function(){
@@ -22,23 +24,11 @@ let total=0;
         if(flip <= 5){
             tails_count++
             total++
-            if(tails_percent + heads_percent > 100){
-              tails_percent = (100-heads_percent)
-            } else if(total===0){
-               tails_percent = 0
-            } else {
-              tails_percent=(tails_count/total*100)
-            }
+            image=document.getElementById('image').src = 'assets/images/penny-tails.jpg';
         } else if(flip>5) {
             heads_count++
             total++
-            if(tails_percent + heads_percent > 100){
-                heads_percent = (100-tails_percent)
-              } else if(total===0){
-                 heads_percent = 0
-              } else {
-                heads_percent=(heads_count/total*100)
-              }
+            image=document.getElementById('image').src = 'assets/images/penny-heads.jpg';
         }
 
         let headsCell = document.getElementById("heads")
