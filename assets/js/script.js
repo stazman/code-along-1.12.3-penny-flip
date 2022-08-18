@@ -14,43 +14,44 @@ let tailsPercent = document.getElementById("tails-percent")
 
 let image = document.getElementById("image").src = 'assets/images/penny-heads.jpg'
 
-        // TODO: Update status message in the DOM
+let message = document.getElementById('message');
 
-        document.getElementById("clear").addEventListener("click", function(){
 
-          image=document.getElementById('image').src = 'assets/images/penny-heads.jpg';
+document.getElementById("clear").addEventListener("click", function(){
 
-          headsCell.textContent = 0
+  image=document.getElementById('image').src = 'assets/images/penny-heads.jpg';
+  message.textContent="Let\s Get Rolling!"
 
-          headsPercent.textContent = 0
+  headsCell.textContent=0
+  headsPercent.textContent=0
+  tailsCell.textContent=0
+  tailsPercent.textContent=0
 
-          tailsCell.textContent = 0
+  heads_count=0;
+  tails_count=0;
+  heads_percent=0;
+  tails_percent=0;
+  total=0;
+})
 
-          tailsPercent.textContent = 0
+document.getElementById("flip").addEventListener("click", function(){
 
-          heads_count=0;
-          tails_count=0;
-          heads_percent=0;
-          tails_percent=0;
-          total=0;
-        })
+  let flip = Math.round((Math.random() * 10))
 
-        document.getElementById("flip").addEventListener("click", function(){
-
-          let flip = Math.round((Math.random() * 10))
-
-          if(flip <= 5){
-              tails_count++
-              total++
-              tailsCell.textContent = tails_count
-              image=document.getElementById('image').src = 'assets/images/penny-tails.jpg';
-          } else if(flip>5) {
-              heads_count++
-              total++
-              headsCell.textContent = heads_count
-              image=document.getElementById('image').src = 'assets/images/penny-heads.jpg';
-          }
-    })
+  if(flip <= 5){
+      tails_count++
+      total++
+      tailsCell.textContent = tails_count
+      message.textContent = "You Flipped Tails!"
+      image=document.getElementById('image').src = 'assets/images/penny-tails.jpg';
+  } else if(flip>5) {
+      heads_count++
+      total++
+      headsCell.textContent = heads_count
+      message.textContent = "You Flipped Heads!"
+      image=document.getElementById('image').src = 'assets/images/penny-heads.jpg';
+  }
+})
 
 
 
