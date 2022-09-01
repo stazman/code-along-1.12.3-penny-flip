@@ -12,7 +12,7 @@ let tailsCell = document.getElementById("tails")
 
 let tailsPercent = document.getElementById("tails-percent")
 
-let image = document.getElementById("image").src = 'assets/images/penny-heads.jpg'
+let image = document.getElementById("image").src = 'assets/images/penny-heads.jpg';
 
 let message = document.getElementById('message');
 
@@ -29,8 +29,6 @@ document.getElementById("clear").addEventListener("click", function(){
 
   heads_count=0;
   tails_count=0;
-  heads_percent=0;
-  tails_percent=0;
   total=0;
 })
 
@@ -51,11 +49,16 @@ document.getElementById("flip").addEventListener("click", function(){
       message.textContent = "You Flipped Heads!"
       image=document.getElementById('image').src = 'assets/images/penny-heads.jpg';
   }
+
+  let roundedHeads = headsCell.textContent;
+  let roundedTails = tailsCell.textContent;
+
+  headsPercent.textContent = (Math.round((headsCell.textContent/total)*100)).toFixed(0);
+
+  tailsPercent.textContent = (Math.round((tailsCell.textContent/total)*100)).toFixed(0);
+
+  if(roundedHeads + roundedTails > 100){
+    headsPercent.textContent = (Math.floor((headsCell.textContent/total)*100)).toFixed(0);
+    tailsPercent.textContent = (Math.floor((tailsCell.textContent/total)*100)).toFixed(0);
+  }
 })
-
-
-
-        // Make variables to track the percentages of heads and tails
-        // TODO: Use the calculated total to calculate the percentages
-        // HINT: Make sure not to divide by 0! (if total is 0, percent will be 0 as well)
-        // TODO: Update the display of each table cell
